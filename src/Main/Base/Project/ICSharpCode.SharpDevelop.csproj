@@ -96,6 +96,7 @@
     <Compile Include="..\..\ICSharpCode.SharpDevelop.BuildWorker\ExtendedBinaryReader.cs">
       <Link>Src\Project\MSBuildEngine\ExtendedBinaryReader.cs</Link>
     </Compile>
+    <Compile Include="FileIconService.cs" />
     <Compile Include="Src\Bookmarks\Pad\Controls\ListViewPad.xaml.cs">
       <DependentUpon>ListViewPad.xaml</DependentUpon>
     </Compile>
@@ -196,31 +197,37 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Gui\BrowserDisplayBinding\BrowserDisplayBinding.cs" />
-    <Compile Include="Src\Gui\Components\ColorPickerButton.xaml.cs">
-      <DependentUpon>ColorPickerButton.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Gui\Components\LocalizedPropertyGrid\StringParserPropertyContainer.cs" />
-    <Compile Include="Src\Gui\Components\SideBar\TextEditorSideBar.cs" />
+    <Compile Include="Src\Gui\Components\SideBar\TextEditorSideBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Components\StringListEditorDialog.xaml.cs" />
     <Compile Include="Src\Gui\Components\StringListEditorXaml.xaml.cs">
       <DependentUpon>StringListEditorXaml.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Gui\CustomFocusManager.cs" />
-    <Compile Include="Src\Gui\Dialogs\AddOpenWithEntryDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\AddOpenWithEntryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\AddOpenWithEntryDialog.Designer.cs">
       <DependentUpon>AddOpenWithEntryDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\AsynchronousWaitDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\AsynchronousWaitDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\AsynchronousWaitDialog.Designer.cs">
       <DependentUpon>AsynchronousWaitDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\AbstractAttachToProcessForm.cs" />
+    <Compile Include="Src\Gui\Dialogs\AbstractAttachToProcessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\AbstractAttachToProcessForm.Designer.cs">
       <DependentUpon>AbstractAttachToProcessForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\ExtractInterfaceDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\ExtractInterfaceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <None Include="ICSharpCode.SharpDevelop.addin" />
     <None Include="Src\Gui\Dialogs\ExtractInterfaceDialog.cs">
       <Link>Src\Services\RefactoringService\ExtractInterfaceDialog.cs</Link>
@@ -232,14 +239,16 @@
       <Link>Src\Services\RefactoringService\ExtractInterfaceDialog.Designer.cs</Link>
       <DependentUpon>ExtractInterfaceDialog.cs</DependentUpon>
     </None>
-    <Compile Include="Src\Gui\Dialogs\GotoDialog.cs">
+    <Compile Include="Src\Gui\Dialogs\GotoDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\NewProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\NewProjectDialog.cs" />
     <Compile Include="Src\Gui\Dialogs\NewProjectDialog.Designer.cs">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\OpenWithDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\OpenWithDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\OpenWithDialog.Designer.cs">
       <DependentUpon>OpenWithDialog.cs</DependentUpon>
     </Compile>
@@ -253,22 +262,6 @@
     </Compile>
     <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\EditStandardHeaderPanel.xaml.cs">
       <DependentUpon>EditStandardHeaderPanel.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\LoadSaveOptions.xaml.cs">
-      <DependentUpon>LoadSaveOptions.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\ProjectAndSolutionOptions.xaml.cs">
-      <DependentUpon>ProjectAndSolutionOptions.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\SelectCulturePanel.xaml.cs">
-      <DependentUpon>SelectCulturePanel.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\SelectStylePanel.xaml.cs">
-      <DependentUpon>SelectStylePanel.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\TaskListOptionsl.xaml.cs">
@@ -366,12 +359,18 @@
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\ServiceReference\SvcUtilMessageView.cs" />
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\ServiceReference\SvcUtilPath.cs" />
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\ServiceReference\SvcUtilRunner.cs" />
-    <Compile Include="Src\Gui\Dialogs\ToolNotFoundDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\ToolNotFoundDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\ToolNotFoundDialog.Designer.cs">
       <DependentUpon>ToolNotFoundDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\OptionPanels\XmlFormsOptionPanel.cs" />
-    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\AddNewConfigurationDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\OptionPanels\XmlFormsOptionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\AddNewConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\AddNewConfigurationDialog.Designer.cs">
       <DependentUpon>AddNewConfigurationDialog.cs</DependentUpon>
     </Compile>
@@ -396,11 +395,7 @@
     <Compile Include="Src\Gui\ProgressCollector.cs" />
     <Compile Include="Src\Gui\SimpleViewContent.cs" />
     <Compile Include="Src\Gui\Workbench\FullScreenEnabledWindow.cs" />
-    <Compile Include="Src\Gui\Workbench\Layouts\AvalonDockLayout.cs" />
-    <Compile Include="Src\Gui\Workbench\Layouts\AvalonPadContent.cs" />
-    <Compile Include="Src\Gui\Workbench\Layouts\AvalonWorkbenchWindow.cs" />
     <Compile Include="Src\Gui\Workbench\SingleInstanceHelper.cs" />
-    <Compile Include="Src\Gui\Workbench\WpfWorkbench.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\ViewInBrowserConditionEvaluator.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\WriteableProjectEvaluator.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\WriteableSolutionEvaluator.cs" />
@@ -482,7 +477,6 @@
     <Compile Include="Src\Services\LanguageBinding\ILanguageBinding.cs" />
     <Compile Include="Src\Services\LanguageBinding\LanguageBindingDoozer.cs" />
     <Compile Include="Src\Services\LanguageBinding\LanguageBindingService.cs" />
-    <Compile Include="Src\Services\Language\LanguageService.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\WindowActiveEvaluator.cs" />
     <Compile Include="Src\Internal\Doozers\DefaultOptionPanelDescriptor.cs" />
     <Compile Include="Src\Internal\Doozers\OptionPanelDoozer.cs" />
@@ -537,7 +531,6 @@
     <Compile Include="Src\Services\DisplayBinding\DisplayBindingDoozer.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\CombineOpenEvaluator.cs" />
     <Compile Include="Src\Services\ProjectBinding\ProjectBindingDoozer.cs" />
-    <Compile Include="Src\Services\Language\Language.cs" />
     <Compile Include="Src\Services\DisplayBinding\DisplayBindingService.cs" />
     <Compile Include="Src\Internal\ConditionEvaluators\ProjectActiveEvaluator.cs" />
     <Compile Include="Src\Services\AmbienceService\NetAmbience.cs" />
@@ -575,22 +568,14 @@
     <Compile Include="Src\Gui\Pads\ProjectBrowser\Commands\FolderNodeCommands.cs" />
     <Compile Include="Src\Gui\Pads\ProjectBrowser\Commands\ProjectNodeCommands.cs" />
     <Compile Include="Src\Gui\Pads\ProjectBrowser\Commands\ReferenceFolderNodeCommands.cs" />
-    <Compile Include="Src\Gui\BrowserDisplayBinding\HtmlViewPane.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Src\Gui\Components\SideBar\SharpDevelopSideBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\BrowserDisplayBinding\HtmlViewPane.cs" />
+    <Compile Include="Src\Gui\Components\SideBar\SharpDevelopSideBar.cs" />
     <Compile Include="Src\Gui\Components\SideBar\SharpDevelopSideTabItem.cs" />
-    <Compile Include="Src\Gui\Components\StatusBar\SdStatusBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\Components\StatusBar\SdStatusBar.cs" />
     <Compile Include="Src\Gui\ContentInterfaces\IPrintable.cs" />
-    <Compile Include="Src\Gui\Dialogs\AbstractOptionPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\Dialogs\AbstractOptionPanel.cs" />
     <Compile Include="Src\Gui\Dialogs\CommonAboutDialog.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Src\Gui\Dialogs\NewFileDialog.cs">
       <SubType>Form</SubType>
@@ -598,9 +583,7 @@
     <Compile Include="Src\Gui\Dialogs\SharpDevelopAboutPanels.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\TabbedOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\Dialogs\TabbedOptions.cs" />
     <Compile Include="Src\Gui\Dialogs\WordCountDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -611,7 +594,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\GacReferencePanel.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\ProjectReferencePanel.cs">
       <SubType>Component</SubType>
@@ -621,9 +604,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\WebReference.cs" />
-    <Compile Include="Src\Gui\Pads\FileScout.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\Pads\FileScout.cs" />
     <Compile Include="Src\Gui\Pads\PropertyPad\PropertyPad.cs" />
     <Compile Include="Src\Gui\XmlForms\SharpDevelopPropertyValueCreator.cs" />
     <Compile Include="Src\Gui\XmlForms\SharpDevelopStringValueFilter.cs" />
@@ -791,13 +772,10 @@
     <Compile Include="Src\Gui\Pads\PropertyPad\IDEContainer.cs" />
     <Compile Include="Src\Gui\Pads\PropertyPad\PropertyContainer.cs" />
     <Compile Include="Src\Gui\Dialogs\OptionPanels\ProjectOptions\BuildEvents.cs">
-      <SubType>UserControl</SubType>
       <DependentUpon>BuildEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\Gui\BrowserDisplayBinding\SchemeExtension.cs" />
-    <Compile Include="Src\Gui\BrowserDisplayBinding\ExtendedWebBrowser.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Src\Gui\BrowserDisplayBinding\ExtendedWebBrowser.cs" />
     <Compile Include="Src\Bookmarks\BookmarkConverter.cs" />
     <Compile Include="Src\Bookmarks\ClassMemberBookmark.cs" />
     <Compile Include="Src\Services\RefactoringService\RefactoringService.cs" />
@@ -822,15 +800,25 @@
     <Compile Include="Src\Services\RefactoringService\LocalVariableRefactoring.cs" />
     <Compile Include="Src\Services\RefactoringService\FindReferencesAndRenameHelper.cs" />
     <Compile Include="Src\Internal\Doozers\DirectoryDoozer.cs" />
-    <Compile Include="Src\Gui\Components\StringListEditor.cs" />
+    <Compile Include="Src\Gui\Components\StringListEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Src\Project\ConfigurationGuiBinding.cs" />
-    <Compile Include="Src\Project\ChooseStorageLocationButton.cs" />
+    <Compile Include="Src\Project\ChooseStorageLocationButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Pads\ProjectBrowser\NodeBuilder\NodeBuilders.cs" />
-    <Compile Include="Src\Gui\Pads\TaskList\TaskView.cs" />
+    <Compile Include="Src\Gui\Pads\TaskList\TaskView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Pads\TaskList\TaskListPad.cs" />
     <Compile Include="Src\Gui\FormLocationHelper.cs" />
-    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\AddWebReferenceDialog.cs" />
-    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\WebServicesView.cs" />
+    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\AddWebReferenceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\WebServicesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Src\Project\Items\WebReferencesProjectItem.cs" />
     <Compile Include="Src\Gui\Pads\ProjectBrowser\NodeBuilder\WebReferenceNodeBuilder.cs" />
     <Compile Include="Src\Gui\Pads\ProjectBrowser\TreeNodes\WebReferencesFolderNode.cs" />
@@ -840,8 +828,12 @@
     <Compile Include="Src\Gui\Dialogs\TemplateCategoryComparer.cs" />
     <Compile Include="Src\Internal\Templates\TemplateCategorySortOrderFile.cs" />
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\HttpAuthenticationHeader.cs" />
-    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\UserCredentialsDialog.cs" />
-    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\WebServiceDiscoveryClientProtocol.cs" />
+    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\UserCredentialsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\ReferenceDialog\WebServiceDiscoveryClientProtocol.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\AsyncDiscoveryState.cs" />
     <Compile Include="Src\Gui\Dialogs\ReferenceDialog\DiscoveryNetworkCredential.cs" />
     <Compile Include="Src\Services\ProjectService\ProjectLoader.cs" />
@@ -884,15 +876,21 @@
     <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\SolutionConfigurationEditor.Designer.cs">
       <DependentUpon>SolutionConfigurationEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\SolutionConfigurationEditor.cs" />
-    <Compile Include="Src\Gui\Dialogs\SharpDevelopColorDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\SolutionConfigurationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\Dialogs\SharpDevelopColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Src\Util\ExtensionMethods.cs" />
     <Compile Include="Src\Util\DebugTimer.cs" />
     <Compile Include="Src\Project\CustomTool.cs" />
     <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\EditAvailableConfigurationsDialog.Designer.cs">
       <DependentUpon>EditAvailableConfigurationsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\EditAvailableConfigurationsDialog.cs" />
+    <Compile Include="Src\Gui\Dialogs\SolutionConfiguration\EditAvailableConfigurationsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Src\Project\MSBuildBasedProject.cs" />
     <Compile Include="Src\Project\MSBuildItemDefinitionGroup.cs" />
     <Compile Include="Src\Project\AbstractProject.cs" />
@@ -936,7 +934,6 @@
     <Page Include="Src\Gui\Dialogs\OptionPanels\ExternalToolPanel.xaml" />
     <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\CodeGenerationPanel.xaml" />
     <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\EditStandardHeaderPanel.xaml" />
-    <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\SelectStylePanel.xaml" />
     <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\TaskListOptionsl.xaml" />
     <Page Include="Src\Gui\Dialogs\OptionPanels\ProjectOptions\ApplicationSettings.xaml" />
     <Page Include="Src\Gui\Dialogs\OptionPanels\ProjectOptions\BuildAdvanced.xaml" />
@@ -975,30 +972,14 @@
       <Name>Mono.Cecil</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Libraries\NRefactory\Project\NRefactory.csproj">
-      <Project>{3A9AE6AA-BC07-4A2F-972C-581E3AE2F195}</Project>
+      <Project>{3a9ae6aa-bc07-4a2f-972c-581e3ae2f195}</Project>
       <Name>NRefactory</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Project\ICSharpCode.Core.csproj">
       <Project>{35cef10f-2d4c-45f2-9dd1-161e0fec583c}</Project>
       <Name>ICSharpCode.Core</Name>
       <Private>False</Private>
     </ProjectReference>
-    <Folder Include="Src\Gui\Dialogs\ReferenceDialog\ServiceReference" />
-    <Folder Include="Src\Project\Behaviors" />
-    <Folder Include="Src\Project\PortableLibrary" />
-    <Folder Include="themes" />
-    <Folder Include="Src\Bookmarks\Pad\Controls" />
-    <Folder Include="Src\Editor\AvalonEdit" />
-    <Folder Include="Src\Editor\CodeCompletion" />
-    <Folder Include="Src\Editor\Commands" />
-    <Folder Include="Src\Editor\Search" />
-    <Folder Include="Src\Gui\Pads\TaskList" />
-    <Folder Include="Src\Services\Debugger\Tooltips" />
-    <Folder Include="Src\Services\RefactoringService\ContextActions" />
-    <Folder Include="Src\Util" />
-    <Folder Include="Src\Gui\Pads\ClassBrowser\NodeBuilder" />
-    <Folder Include="Src\Services\NavigationService" />
     <ProjectReference Include="..\..\ICSharpCode.Core.Presentation\ICSharpCode.Core.Presentation.csproj">
       <Project>{7E4A7172-7FF5-48D0-B719-7CD959DD1AC9}</Project>
       <Name>ICSharpCode.Core.Presentation</Name>
@@ -1014,24 +995,22 @@
       <Name>ICSharpCode.SharpDevelop.Dom</Name>
       <Private>False</Private>
     </ProjectReference>
-    <Folder Include="Src\Gui\Dialogs\SolutionConfiguration" />
     <ProjectReference Include="..\..\ICSharpCode.SharpDevelop.Widgets\Project\ICSharpCode.SharpDevelop.Widgets.csproj">
       <Project>{8035765F-D51F-4A0C-A746-2FD100E19419}</Project>
       <Name>ICSharpCode.SharpDevelop.Widgets</Name>
       <Private>False</Private>
     </ProjectReference>
     <Page Include="Src\Gui\App.xaml" />
-    <Page Include="Src\Gui\Components\ColorPickerButton.xaml" />
     <Page Include="Src\Gui\Dialogs\GotoDialog.xaml">
       <DependentUpon>GotoDialog.cs</DependentUpon>
     </Page>
-    <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\LoadSaveOptions.xaml" />
-    <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\ProjectAndSolutionOptions.xaml" />
-    <Page Include="Src\Gui\Dialogs\OptionPanels\IDEOptions\SelectCulturePanel.xaml" />
     <Page Include="Src\Gui\Dialogs\TabbedOptionsDialog.xaml" />
     <Page Include="Src\Gui\Dialogs\TreeViewOptionsDialog.xaml" />
     <Page Include="Src\Gui\Workbench\WpfWorkbench.xaml" />
     <Page Include="Src\Project\Converter\UpgradeView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Src\Services\Language\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <Import Project="PostBuildEvent.proj" />
