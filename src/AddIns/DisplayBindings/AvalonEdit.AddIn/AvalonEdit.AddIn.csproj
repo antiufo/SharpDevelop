@@ -76,7 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\AvalonEditSyntaxHighlighterAdapter.cs" />
+    <Compile Include="Src\DiffControl.xaml.cs">
+      <DependentUpon>DiffControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Src\DocumentSequence.cs" />
+    <Compile Include="Src\Options\HighlightingOptions.xaml.cs">
+      <DependentUpon>HighlightingOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Src\Snippets\CodeSnippetComparer.cs" />
     <Compile Include="Src\Utils.cs" />
     <None Include="AvalonEdit.AddIn.addin">
@@ -103,10 +109,6 @@
     <Compile Include="Src\CodeEditorView.cs" />
     <Compile Include="Src\ContextActionsRenderer.cs" />
     <Compile Include="Src\DefaultChangeWatcher.cs" />
-    <Compile Include="Src\DiffControl.xaml.cs">
-      <DependentUpon>DiffControl.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\ExpressionHighlightRenderer.cs" />
     <Compile Include="Src\CaretHighlightAdorner.cs" />
     <Compile Include="Src\HiddenDefinition\HiddenDefinitionControl.xaml.cs">
@@ -144,10 +146,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Options\CodeEditorOptions.cs" />
-    <Compile Include="Src\Options\HighlightingOptions.xaml.cs">
-      <DependentUpon>HighlightingOptions.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Options\IHighlightingItem.cs" />
     <Compile Include="Src\Options\NamedColorHighlightingItem.cs" />
     <Compile Include="Src\Options\SimpleHighlightingItem.cs" />
@@ -180,8 +178,15 @@
     <EmbeddedResource Include="Resources\ReverseIncrementalSearchCursor.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Src\DiffControl.xaml" />
+    <Page Include="Src\DiffControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Src\HiddenDefinition\HiddenDefinitionControl.xaml" />
+    <Page Include="Src\Options\HighlightingOptions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Src\SharpDevelopCompletionWindow.xaml">
       <DependentUpon>SharpDevelopCompletionWindow.cs</DependentUpon>
     </Page>
@@ -230,7 +235,6 @@
     <Page Include="Src\Commands\SortOptionsDialog.xaml" />
     <Page Include="Src\Options\BehaviorOptions.xaml" />
     <Page Include="Src\Options\GeneralEditorOptions.xaml" />
-    <Page Include="Src\Options\HighlightingOptions.xaml" />
     <Page Include="Src\Options\TextViewOptions.xaml" />
     <Page Include="Src\Snippets\SnippetOptionPanel.xaml">
       <DependentUpon>SnippetOptionPanel.cs</DependentUpon>
@@ -244,7 +248,5 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Src\HiddenDefinition" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

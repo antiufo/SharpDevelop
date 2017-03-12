@@ -29,7 +29,6 @@ namespace ICSharpCode.SharpDevelop.Commands
 			System.Windows.Forms.Integration.WindowsFormsHost.EnableWindowsFormsInterop();
 			ComponentDispatcher.ThreadIdle -= ComponentDispatcher_ThreadIdle; // ensure we don't register twice
 			ComponentDispatcher.ThreadIdle += ComponentDispatcher_ThreadIdle;
-			WorkbenchSingleton.InitializeWorkbench(new WpfWorkbench(), new AvalonDockLayout());
 		}
 		
 		static void ComponentDispatcher_ThreadIdle(object sender, EventArgs e)
