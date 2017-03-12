@@ -207,8 +207,6 @@ namespace ICSharpCode.AvalonEdit.AddIn
 			
 			textView.Services.AddService(typeof(IEditorUIService), new AvalonEditEditorUIService(textView));
 			
-			textView.Services.AddService(typeof(IBookmarkMargin), iconBarManager);
-			codeEditorView.TextArea.LeftMargins.Insert(0, new IconBarMargin(iconBarManager));
 			
 			if (changeWatcher != null) {
 				codeEditorView.TextArea.LeftMargins.Add(new ChangeMarkerMargin(changeWatcher));
@@ -600,7 +598,6 @@ namespace ICSharpCode.AvalonEdit.AddIn
 					quickClassBrowser = null;
 				}
 			}
-			iconBarManager.UpdateClassMemberBookmarks(parseInfo, document);
 			primaryTextEditor.UpdateParseInformationForFolding(parseInfo);
 			if (secondaryTextEditor != null)
 				secondaryTextEditor.UpdateParseInformationForFolding(parseInfo);

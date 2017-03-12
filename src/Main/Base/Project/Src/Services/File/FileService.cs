@@ -242,7 +242,21 @@ namespace ICSharpCode.SharpDevelop
 		{
 			return GetOpenFile(fileName) != null;
 		}
-		
+
+		public static IViewContent OpenFileNewView(string text)
+		{
+			text = FileUtility.NormalizePath(text);
+			IDisplayBinding displayBinding = DisplayBindingService.GetBindingPerFileName(text);
+			if (displayBinding == null)
+			{
+				displayBinding = new FileService.ErrorFallbackBinding("Could not find any display binding for " + Path.GetFileName(text));
+			}
+			FileUtility.ObservedLoad(new NamedFileOperationDelegate(new FileService.LoadFileWrapper(displayBinding, false).Invoke), text, FileErrorPolicy.Inform);
+			return FileService.GetOpenFile(text);
+		}
+
+
+
 		/// <summary>
 		/// Opens a view content for the specified file and switches to the opened view
 		/// or switches to and returns the existing view content for the file if it is already open.

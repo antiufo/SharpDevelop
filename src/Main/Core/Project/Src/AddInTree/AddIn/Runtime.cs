@@ -40,7 +40,9 @@ namespace ICSharpCode.Core
 			: this(assembly, hintPath, AddInTree.AddIns)
 		{
 		}
-		
+
+		public static bool IsBundledBuild;
+
 		public Runtime(string assembly, string hintPath, IList<AddIn> addIns)
 		{
 			this.assembly = assembly;
@@ -51,55 +53,40 @@ namespace ICSharpCode.Core
 		public string Assembly {
 			get { return assembly; }
 		}
-		
+
 		/// <summary>
 		/// Force loading the runtime assembly now.
 		/// </summary>
 		public void Load()
 		{
-			lock (lockObj) {
-				if (!isAssemblyLoaded) {
-					if (!this.IsActive)
-						throw new InvalidOperationException("Cannot load inactive AddIn runtime");
-					
-					isAssemblyLoaded = true;
-					
-					try {
-						if (assembly[0] == ':') {
-							loadedAssembly = LoadAssembly(assembly.Substring(1));
-						} else if (assembly[0] == '$') {
-							int pos = assembly.IndexOf('/');
-							if (pos < 0)
-								throw new CoreException("Expected '/' in path beginning with '$'!");
-							string referencedAddIn = assembly.Substring(1, pos - 1);
-							foreach (AddIn addIn in addIns) {
-								if (addIn.Enabled && addIn.Manifest.Identities.ContainsKey(referencedAddIn)) {
-									string assemblyFile = Path.Combine(Path.GetDirectoryName(addIn.FileName),
-									                                   assembly.Substring(pos + 1));
-									loadedAssembly = LoadAssemblyFrom(assemblyFile);
-									break;
-								}
-							}
-							if (loadedAssembly == null) {
-								throw new FileNotFoundException("Could not find referenced AddIn " + referencedAddIn);
-							}
-						} else {
-							loadedAssembly = LoadAssemblyFrom(Path.Combine(hintPath, assembly));
-						}
-
-						#if DEBUG
-						// preload assembly to provoke FileLoadException if dependencies are missing
-						loadedAssembly.GetExportedTypes();
-						#endif
-					} catch (FileNotFoundException ex) {
-						ShowError("The addin '" + assembly + "' could not be loaded:\n" + ex.ToString());
-					} catch (FileLoadException ex) {
-						ShowError("The addin '" + assembly + "' could not be loaded:\n" + ex.ToString());
-					}
-				}
+			if (this.loadedAssembly != null)
+			{
+				return;
 			}
+			if (Runtime.IsBundledBuild)
+			{
+				this.loadedAssembly = typeof(Runtime).Assembly;
+			}
+			else
+			{
+				string text = this.assembly;
+				if (text[0] == ':')
+				{
+					text = text.Substring(1);
+				}
+				else if (text[0] == '$')
+				{
+					text = text.Substring(1);
+				}
+				else
+				{
+					text = Path.GetFileNameWithoutExtension(text);
+				}
+				this.loadedAssembly = System.Reflection.Assembly.Load(text);
+			}
+			this.isAssemblyLoaded = true;
 		}
-		
+
 		public Assembly LoadedAssembly {
 			get {
 				if (this.IsActive) {

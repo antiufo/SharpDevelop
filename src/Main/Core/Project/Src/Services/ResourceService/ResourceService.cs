@@ -244,41 +244,7 @@ namespace ICSharpCode.Core
 		/// </exception>
 		public static string GetString(string name)
 		{
-			lock (loadLock) {
-				if (localStrings != null && localStrings[name] != null) {
-					return localStrings[name].ToString();
-				}
-				
-				string s = null;
-				foreach (ResourceManager resourceManger in localStringsResMgrs) {
-					try {
-						s = resourceManger.GetString(name);
-					}
-					catch (Exception) { }
-
-					if (s != null) {
-						break;
-					}
-				}
-				
-				if (s == null) {
-					foreach (ResourceManager resourceManger in strings) {
-						try {
-							s = resourceManger.GetString(name);
-						}
-						catch (Exception) { }
-						
-						if (s != null) {
-							break;
-						}
-					}
-				}
-				if (s == null) {
-					throw new ResourceNotFoundException("string >" + name + "<");
-				}
-				
-				return s;
-			}
+			return name;
 		}
 		
 		public static object GetImageResource(string name)

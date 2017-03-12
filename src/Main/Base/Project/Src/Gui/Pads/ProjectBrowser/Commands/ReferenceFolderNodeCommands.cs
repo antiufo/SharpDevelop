@@ -73,11 +73,28 @@ namespace ICSharpCode.SharpDevelop.Project.Commands
 						ParserService.ParseFile(webReference.WebProxyFileName);
 					}
 				} catch (WebException ex) {
-					MessageService.ShowException(ex, String.Format(StringParser.Parse("${res:ICSharpCode.SharpDevelop.Commands.ProjectBrowser.RefreshWebReference.ReadServiceDescriptionError}"), url.UpdateFromURL));
+					LoggingService.Debug(ex);
+					MessageService.ShowError(this.GetRefreshWebReferenceErrorMessage(ex, url.UpdateFromURL));
 				}
 			}
 		}
-		
+
+
+		private string GetRefreshWebReferenceErrorMessage(WebException ex, string arg)
+		{
+			return string.Format("{0}\r\n\r\n{1}\r\n{2}", string.Format(StringParser.Parse("${res:ICSharpCode.SharpDevelop.Commands.ProjectBrowser.RefreshWebReference.ReadServiceDescriptionError}"), arg), ex.Message, this.GetInnerExceptionMessage(ex));
+		}
+
+		private string GetInnerExceptionMessage(WebException ex)
+		{
+			if (ex.InnerException != null)
+			{
+				return ex.InnerException.Message;
+			}
+			return string.Empty;
+		}
+
+
 		DiscoveryClientProtocol DiscoverWebServices(string url)
 		{
 			WebServiceDiscoveryClientProtocol protocol = new WebServiceDiscoveryClientProtocol();

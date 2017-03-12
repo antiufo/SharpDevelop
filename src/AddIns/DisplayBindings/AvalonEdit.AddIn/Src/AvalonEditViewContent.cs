@@ -17,6 +17,7 @@ using ICSharpCode.SharpDevelop.Dom;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Project;
+using System.Windows.Forms;
 
 namespace ICSharpCode.AvalonEdit.AddIn
 {
@@ -83,7 +84,13 @@ namespace ICSharpCode.AvalonEdit.AddIn
 		
 		void codeEditor_TextCopied(object sender, ICSharpCode.AvalonEdit.Editing.TextEventArgs e)
 		{
-			TextEditorSideBar.Instance.PutInClipboardRing(e.Text);
+			try
+			{
+				Clipboard.SetText(e.Text);
+			}
+			catch
+			{
+			}
 		}
 		
 		public CodeEditor CodeEditor {

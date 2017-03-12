@@ -618,7 +618,20 @@ namespace ICSharpCode.SharpDevelop
 			element.AddFirst(new XText(Environment.NewLine + indentation.ToString()));
 			return newContent;
 		}
-		
+
+
+		public static bool AutoCompleteWithCamelHumpsMatch(this string text, string entityPartName)
+		{
+			string entityName = new string(text.Where((char c) => char.IsUpper(c)).Select((char result) => result).ToArray<char>());
+			return text.AutoCompleteMatch(entityPartName) || entityName.AutoCompleteMatch(entityPartName);
+		}
+
+		public static bool AutoCompleteMatch(this string text, string value)
+		{
+			return text.IndexOf(value, StringComparison.OrdinalIgnoreCase) >= 0;
+		}
+
+
 		#region Dom, AST, Editor, Document
 		public static Location GetStart(this DomRegion region)
 		{

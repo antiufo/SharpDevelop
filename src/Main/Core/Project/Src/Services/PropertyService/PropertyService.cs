@@ -74,13 +74,8 @@ namespace ICSharpCode.Core
 				throw new InvalidOperationException("Service is not initialized.");
 			if (string.IsNullOrEmpty(configDirectory) || string.IsNullOrEmpty(propertyXmlRootNodeName))
 				throw new InvalidOperationException("No file name was specified on service creation");
-			if (!Directory.Exists(configDirectory)) {
-				Directory.CreateDirectory(configDirectory);
-			}
 			
-			if (!LoadPropertiesFromStream(Path.Combine(configDirectory, propertyFileName))) {
-				LoadPropertiesFromStream(Path.Combine(DataDirectory, "options", propertyFileName));
-			}
+			LoadPropertiesFromStream(Path.Combine(DataDirectory, "options", propertyFileName));
 		}
 		
 		public static bool LoadPropertiesFromStream(string fileName)

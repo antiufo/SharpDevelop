@@ -1,6 +1,7 @@
 ﻿// Copyright (c) AlphaSierraPapa for the SharpDevelop Team (for details please see \doc\copyright.txt)
 // This code is distributed under the GNU LGPL (for details please see \doc\license.txt)
 
+using ICSharpCode.Core.Presentation.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -82,9 +83,9 @@ namespace ICSharpCode.Core.Presentation
 				BitmapSource bs;
 				if (bitmapCache.TryGetValue(name, out bs))
 					return bs;
-				System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)ResourceService.GetImageResource(name);
+				System.Drawing.Bitmap bmp = (Bitmap)Resources.ResourceManager.GetObject(name.Replace(".", "_"));
 				if (bmp == null) {
-					throw new ResourceNotFoundException(name);
+					return null;
 				}
 				IntPtr hBitmap = bmp.GetHbitmap();
 				try {

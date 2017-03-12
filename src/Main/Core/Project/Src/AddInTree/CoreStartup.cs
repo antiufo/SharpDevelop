@@ -204,7 +204,18 @@ namespace ICSharpCode.Core
 			ResourceService.InitializeService(Path.Combine(PropertyService.DataDirectory, "resources"));
 			StringParser.RegisterStringTagProvider(new AppNameProvider { appName = applicationName });
 		}
-		
+
+
+		public void AddAddInResource(string s)
+		{
+			using (StringReader stringReader = new StringReader(s))
+			{
+				AddIn addIn = AddIn.Load(stringReader, null, null);
+				addIn.Enabled = true;
+				AddInTree.InsertAddIn(addIn);
+			}
+		}
+
 		sealed class AppNameProvider : IStringTagProvider
 		{
 			internal string appName;

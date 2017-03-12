@@ -157,15 +157,15 @@ namespace ICSharpCode.SharpDevelop
 			AddImage("Icons.16x16.ProtectedEvent"),
 			AddImage("Icons.16x16.PrivateEvent"),
 			
-			AddImage("Icons.16x16.Indexer"),
-			AddImage("Icons.16x16.InternalIndexer"),
-			AddImage("Icons.16x16.ProtectedIndexer"),
-			AddImage("Icons.16x16.PrivateIndexer"),
+			AddImage("Icons.16x16.Property"),
+			AddImage("Icons.16x16.InternalProperty"),
+			AddImage("Icons.16x16.ProtectedProperty"),
+			AddImage("Icons.16x16.PrivateProperty"),
 			
 			AddImage("Icons.16x16.ExtensionMethod"),
-			AddImage("Icons.16x16.InternalExtensionMethod"),
-			AddImage("Icons.16x16.ProtectedExtensionMethod"),
-			AddImage("Icons.16x16.PrivateExtensionMethod")
+			AddImage("Icons.16x16.ExtensionMethod"),
+			AddImage("Icons.16x16.ExtensionMethod"),
+			AddImage("Icons.16x16.ExtensionMethod")
 		};
 		
 		const int ClassIndex           = 0;
@@ -249,7 +249,10 @@ namespace ICSharpCode.SharpDevelop
 		public static ClassBrowserImage GetIcon(IField field)
 		{
 			if (field.IsConst) {
-				return Const;
+				if (field.DeclaringType.ClassType == ClassType.Enum)
+					return EnumValue;
+				else
+					return Const;
 			} else if (field.IsParameter) {
 				return Parameter;
 			} else if (field.IsLocalVariable) {
@@ -317,7 +320,8 @@ namespace ICSharpCode.SharpDevelop
 		public static ClassBrowserImage GetIcon(FieldInfo fieldinfo)
 		{
 			if (fieldinfo.IsLiteral) {
-				return Const;
+				if (fieldinfo.DeclaringType.IsEnum) return EnumValue;
+				else return Const;
 			}
 			
 			if (fieldinfo.IsAssembly) {
@@ -378,6 +382,7 @@ namespace ICSharpCode.SharpDevelop
 		public static readonly ClassBrowserImage Namespace = AddImage("Icons.16x16.NameSpace");
 		public static readonly ClassBrowserImage Solution = AddImage("Icons.16x16.CombineIcon");
 		public static readonly ClassBrowserImage Const = AddImage("Icons.16x16.Literal");
+		public static readonly ClassBrowserImage EnumValue = AddImage("Icons.16x16.EnumValue");
 		public static readonly ClassBrowserImage GotoArrow = AddImage("Icons.16x16.SelectionArrow");
 		
 		public static readonly ClassBrowserImage LocalVariable = AddImage("Icons.16x16.Local");

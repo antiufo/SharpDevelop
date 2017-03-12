@@ -229,6 +229,12 @@ namespace ICSharpCode.AvalonEdit.AddIn
 				}
 				MemberResolveResult mrr = result as MemberResolveResult;
 				if (mrr != null) {
+					var t = mrr.ResolvedMember.DeclaringType.ClassType;
+					if (t == ClassType.Enum)
+					{
+						HelpProvider.ShowHelp(mrr.ResolvedMember.DeclaringType);
+						return;
+					}
 					HelpProvider.ShowHelp(mrr.ResolvedMember);
 				}
 			}

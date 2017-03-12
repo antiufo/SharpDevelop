@@ -17,12 +17,14 @@
 					<Setter Property="Template">
 						<Setter.Value>
 							<ControlTemplate TargetType="ListBox">
-								<TextBlock Text="{Binding EmptyText, RelativeSource={RelativeSource AncestorType={x:Type local:SharpDevelopCompletionWindow}, AncestorLevel=1}}"
-								           FontStyle="Italic" 
-								           Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" 
-								           TextWrapping="WrapWithOverflow"
-											Visibility="{Binding EmptyText, RelativeSource={RelativeSource AncestorType={x:Type local:SharpDevelopCompletionWindow}, AncestorLevel=1}, 
-															Converter={StaticResource StringToVisibilityConverter}}" />
+								<Border BorderThickness="1" BorderBrush="#FFE5C365" Padding="3">
+									<TextBlock Text="{Binding EmptyText, RelativeSource={RelativeSource AncestorType={x:Type local:SharpDevelopCompletionWindow}, AncestorLevel=1}}"
+									           FontStyle="Italic" 
+									           Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" 
+									           TextWrapping="WrapWithOverflow"
+												Visibility="{Binding EmptyText, RelativeSource={RelativeSource AncestorType={x:Type local:SharpDevelopCompletionWindow}, AncestorLevel=1}, 
+																Converter={StaticResource StringToVisibilityConverter}}" />
+								</Border>
 							</ControlTemplate>
 						</Setter.Value>
 					</Setter>

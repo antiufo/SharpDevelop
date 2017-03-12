@@ -274,7 +274,7 @@ namespace ICSharpCode.SharpDevelop.Gui
 			foreach (IClass c in classes) {
 				string className = c.Name;
 				if (className.Length >= classPart.Length) {
-					if (className.IndexOf(classPart, StringComparison.OrdinalIgnoreCase) >= 0) {
+					if (className.AutoCompleteWithCamelHumpsMatch(classPart)) {
 						if (memberPart.Length > 0) {
 							AddAllMembersMatchingText(c, memberPart, false);
 						} else {
@@ -300,7 +300,13 @@ namespace ICSharpCode.SharpDevelop.Gui
 				return MatchType_NoMatch;
 			int indexInsensitive = itemText.IndexOf(searchText, StringComparison.OrdinalIgnoreCase);
 			if (indexInsensitive < 0)
+			{
+				if (itemText.AutoCompleteWithCamelHumpsMatch(searchText))
+				{
+					return MatchType_ContainsMatch_CaseInsensitive;
+				}
 				return MatchType_NoMatch;
+			}
 			// This is a case insensitive match
 			int indexSensitive = itemText.IndexOf(searchText, StringComparison.Ordinal);
 			if (itemText.Length == searchText.Length) {

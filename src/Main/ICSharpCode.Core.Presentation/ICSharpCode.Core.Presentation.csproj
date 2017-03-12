@@ -74,6 +74,11 @@
     <Compile Include="GlobalStyles.cs" />
     <Compile Include="Menu\MenuCheckBox.cs" />
     <Compile Include="NotBoolConverter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RestrictDesiredSize.cs" />
     <Compile Include="SortableGridViewColumn.cs" />
     <Compile Include="ConditionalSeparator.cs" />
@@ -113,5 +118,146 @@
     </ProjectReference>
     <Page Include="themes\Aero.NormalColor.xaml" />
     <Page Include="themes\generic.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Delegate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Enum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_EnumValue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ExtensionMethod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Interface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalClass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalDelegate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalEnum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalInterface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalMethod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalProperty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_InternalStruct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Keyword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Literal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Local.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Method.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_NameSpace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Operator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Parameter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateClass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateDelegate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateEnum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateInterface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateMethod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateProperty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_PrivateStruct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedClass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedDelegate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedEnum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedInterface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedMethod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedProperty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_ProtectedStruct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_Struct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons_16x16_TextFileIcon.png" />
   </ItemGroup>
 </Project>

@@ -88,8 +88,8 @@ namespace ICSharpCode.SharpDevelop.Widgets
 		static void CalculateZoomButtonCollapsed(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			ZoomScrollViewer z = d as ZoomScrollViewer;
-			if (z != null)
-				z.ComputedZoomButtonCollapsed = (z.AlwaysShowZoomButtons == false) && (z.CurrentZoom == 1.0);
+            if (z != null)
+                z.ComputedZoomButtonCollapsed = true;
 		}
 		
 		protected override void OnMouseWheel(MouseWheelEventArgs e)

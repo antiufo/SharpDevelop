@@ -258,20 +258,7 @@ namespace ICSharpCode.SharpDevelop.Debugging
 		/// <param name="parameters">Optional constructor parameters.</param>
 		public static void ToggleBreakpointAt(ITextEditor editor, int lineNumber, Type breakpointType, object[] parameters = null)
 		{
-			if (editor == null)
-				throw new ArgumentNullException("editor");
-			
-			if (breakpointType == null)
-				throw new ArgumentNullException("breakpointType");
-			
-			if (!typeof(BreakpointBookmark).IsAssignableFrom(breakpointType))
-				throw new ArgumentException("breakpointType is not a BreakpointBookmark");
-			
-			BookmarkManager.ToggleBookmark(
-				editor, lineNumber,
-				b => b.CanToggle && b is BreakpointBookmark,
-				location => (BreakpointBookmark)Activator.CreateInstance(breakpointType, 
-				                                                         parameters ?? new object[] { editor.FileName, location, BreakpointAction.Break, "", ""}));
+			throw new NotSupportedException();
 		}
 		
 		/* TODO: reimplement this stuff

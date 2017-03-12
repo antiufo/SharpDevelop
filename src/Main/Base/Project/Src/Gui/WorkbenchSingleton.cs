@@ -63,8 +63,6 @@ namespace ICSharpCode.SharpDevelop.Gui
 		{
 			WorkbenchSingleton.workbench = workbench;
 			
-			LanguageService.ValidateLanguage();
-			
 			DisplayBindingService.InitializeService();
 			LayoutConfiguration.LoadLayoutConfiguration();
 			FileService.InitializeService();

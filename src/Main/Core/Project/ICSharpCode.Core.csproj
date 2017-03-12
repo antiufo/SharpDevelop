@@ -145,9 +145,4 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Target Name="BeforeBuild">
-    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\..\Tools\UpdateAssemblyInfo\UpdateAssemblyInfo.csproj" Targets="Build" Properties="Configuration=Debug" />
-    <Exec WorkingDirectory="$(MSBuildProjectDirectory)\..\..\..\Tools\UpdateAssemblyInfo\bin\Debug" Command="UpdateAssemblyInfo.exe --branchname $(BranchName)" Timeout="60000" Condition=" '$(BranchName)' != '' " />
-    <Exec WorkingDirectory="$(MSBuildProjectDirectory)\..\..\..\Tools\UpdateAssemblyInfo\bin\Debug" Command="UpdateAssemblyInfo.exe" Timeout="60000" Condition=" '$(BranchName)' == '' " />
-  </Target>
 </Project>
