@@ -97,13 +97,6 @@
     <Compile Include="Src\FormattingStrategy\CSharpFormatter.cs" />
     <Compile Include="Src\FormattingStrategy\CSharpFormattingPolicies.cs" />
     <Compile Include="Src\FormattingStrategy\FormattingOptionBinding.cs" />
-    <Compile Include="Src\FormsDesigner\CSharpDesignerGenerator.cs" />
-    <Compile Include="Src\FormsDesigner\CSharpDesignerLoader.cs" />
-    <Compile Include="Src\FormsDesigner\CSharpDesignerLoaderProvider.cs" />
-    <Compile Include="Src\FormsDesigner\CSharpEventBindingService.cs" />
-    <Compile Include="Src\FormsDesigner\CSharpFormsDesignerLoaderContext.cs" />
-    <Compile Include="Src\FormsDesigner\ICSharpDesignerLoaderContext.cs" />
-    <Compile Include="Src\FormsDesigner\SecondaryDisplayBinding.cs" />
     <Compile Include="Src\OptionPanels\CSharpFormattingEditor.xaml.cs">
       <DependentUpon>CSharpFormattingEditor.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -255,11 +248,6 @@
       <Name>ICSharpCode.SharpDevelop.Widgets</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\DisplayBindings\FormsDesigner\Project\FormsDesigner.csproj">
-      <Project>{7d7e92df-aceb-4b69-92c8-8ac7a703cd57}</Project>
-      <Name>FormsDesigner</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Src\OptionPanels\CSharpFormattingEditor.xaml" />
@@ -274,7 +262,7 @@
     <Page Include="Src\Refactoring\SearchForIssuesDialog.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Src\FormsDesigner" />
+    <Folder Include="Src\FormsDesigner\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

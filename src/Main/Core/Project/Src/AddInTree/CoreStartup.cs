@@ -177,14 +177,18 @@ namespace ICSharpCode.Core
 		}
 
 
+
 		public void AddAddInResource(string s)
 		{
+			throw new NotImplementedException();
+			/*
 			using (StringReader stringReader = new StringReader(s))
 			{
 				AddIn addIn = AddIn.Load(stringReader, null, null);
 				addIn.Enabled = true;
 				AddInTree.InsertAddIn(addIn);
 			}
+			*/
 		}
 
 		sealed class AppNameProvider : IStringTagProvider

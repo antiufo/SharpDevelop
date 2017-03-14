@@ -78,8 +78,9 @@ namespace ICSharpCode.SharpDevelop
 			Bitmap bmp = null;
 			try {
 				bmp = FileIconService.GetBitmap(name);
-				if (bmp == null)
-				bmp = WinFormsResourceService.GetBitmap(name);
+				if (bmp == null) {
+					bmp = SD.ResourceService.GetBitmap(name);
+				}
 			} catch (ResourceNotFoundException ex) {
 				LoggingService.Warn(ex);
 			} catch (FileNotFoundException ex) {
@@ -106,7 +107,6 @@ namespace ICSharpCode.SharpDevelop
 			
 			return SD.ResourceService.GetImageSource("Icons.16x16.MiscFiles");
 		}
-		
 		
 		public static string GetImageForProjectType(string projectType)
 		{

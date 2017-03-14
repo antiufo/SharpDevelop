@@ -170,6 +170,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Options\CodeEditorOptions.cs" />
+    <Compile Include="Src\Options\HighlightingOptions.xaml.cs">
+      <DependentUpon>HighlightingOptions.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Options\IHighlightingItem.cs" />
     <Compile Include="Src\Options\NamedColorHighlightingItem.cs" />
     <Compile Include="Src\Options\SimpleHighlightingItem.cs" />
@@ -209,15 +213,6 @@
     <Page Include="Src\ContextActions\ContextActionsBulbControl.xaml" />
     <Page Include="Src\ContextActions\ContextActionsControl.xaml" />
     <Page Include="Src\ContextActions\ContextActionsHeaderedControl.xaml" />
-    <Page Include="Src\DiffControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Src\HiddenDefinition\HiddenDefinitionControl.xaml" />
-    <Page Include="Src\Options\HighlightingOptions.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Src\SharpDevelopCompletionWindow.xaml">
       <DependentUpon>SharpDevelopCompletionWindow.cs</DependentUpon>
     </Page>
@@ -261,6 +256,7 @@
     <Page Include="Src\Commands\SortOptionsDialog.xaml" />
     <Page Include="Src\Options\BehaviorOptions.xaml" />
     <Page Include="Src\Options\GeneralEditorOptions.xaml" />
+    <Page Include="Src\Options\HighlightingOptions.xaml" />
     <Page Include="Src\Options\TextViewOptions.xaml" />
     <Page Include="Src\Snippets\SnippetOptionPanel.xaml">
       <DependentUpon>SnippetOptionPanel.cs</DependentUpon>
@@ -280,5 +276,4 @@
     <Folder Include="Src\SyntaxHighlighting" />
     <Folder Include="Src\XmlDoc" />
   </ItemGroup>
-  <ItemGroup />
 </Project>

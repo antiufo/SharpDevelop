@@ -314,23 +314,6 @@ namespace ICSharpCode.SharpDevelop.Gui
 			}
 		}
 		
-		void AddClasses(string classPart, string memberPart, ArrayList list, IEnumerable<IClass> classes)
-		{
-			foreach (IClass c in classes) {
-				string className = c.Name;
-				if (className.Length >= classPart.Length) {
-					if (className.AutoCompleteWithCamelHumpsMatch(classPart)) {
-						if (memberPart.Length > 0) {
-							AddAllMembersMatchingText(c, memberPart, false);
-						} else {
-							list.Add(c);
-						}
-					}
-				}
-				AddClasses(classPart, memberPart, list, c.InnerClasses);
-			}
-		}
-		
 		void AddSourceFile(string text, int lineNumber, ProjectItem item)
 		{
 			string fileName = item.FileName;
@@ -349,8 +332,6 @@ namespace ICSharpCode.SharpDevelop.Gui
 			}
 		}
 		
-		const int MatchType_NoMatch = -1;
-		
 		void ShowLineNumberItem(string text)
 		{
 			int num;
@@ -362,7 +343,6 @@ namespace ICSharpCode.SharpDevelop.Gui
 				}
 			}
 		}
-		const int MatchType_ContainsMatch_CaseInsensitive = 0;
 		
 		List<IUnresolvedTypeDefinition> SearchClasses(string text)
 		{
@@ -384,6 +364,9 @@ namespace ICSharpCode.SharpDevelop.Gui
 			}
 			return list;
 		}
+
+		const int MatchType_NoMatch = -1;
+		const int MatchType_ContainsMatch_CaseInsensitive = 0;
 		const int MatchType_ContainsMatch = 1;
 		const int MatchType_StartingMatch_CaseInsensitive = 2;
 		const int MatchType_StartingMatch = 3;
@@ -395,10 +378,8 @@ namespace ICSharpCode.SharpDevelop.Gui
 			if (itemText.Length < searchText.Length)
 				return MatchType_NoMatch;
 			int indexInsensitive = itemText.IndexOf(searchText, StringComparison.OrdinalIgnoreCase);
-			if (indexInsensitive < 0)
-			{
-				if (itemText.AutoCompleteWithCamelHumpsMatch(searchText))
-				{
+			if (indexInsensitive < 0) {
+				if (GotoUtils.AutoCompleteWithCamelHumpsMatch(itemText, searchText)) {
 					return MatchType_ContainsMatch_CaseInsensitive;
 				}
 				return MatchType_NoMatch;
