@@ -1,5 +1,20 @@
-﻿// Copyright (c) AlphaSierraPapa for the SharpDevelop Team (for details please see \doc\copyright.txt)
-// This code is distributed under the GNU LGPL (for details please see \doc\license.txt)
+﻿// Copyright (c) 2014 AlphaSierraPapa for the SharpDevelop Team
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+// software and associated documentation files (the "Software"), to deal in the Software
+// without restriction, including without limitation the rights to use, copy, modify, merge,
+// publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+// to whom the Software is furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+// PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
 
 using System;
 using ICSharpCode.PackageManagement;
@@ -174,11 +189,11 @@ namespace PackageManagement.Tests.Scripting
 		}
 		
 		[Test]
-		public void Constructor_PackageReferenceIsRemoved_PackageUninstallScriptIsRun()
+		public void Constructor_PackageReferenceIsBeingRemoved_PackageUninstallScriptIsRun()
 		{
 			CreateAction();
 			PackageOperationEventArgs eventArgs = CreatePackageOperationEventArgs();
-			fakeProject.FirePackageReferenceRemovedEvent(eventArgs);
+			fakeProject.FirePackageReferenceRemovingEvent(eventArgs);
 			
 			IPackageScript actualScript = fakeScriptRunner.FirstScriptRun;
 			FakePackageScript expectedScript = fakeScriptFactory.FirstPackageUninstallScriptCreated;
@@ -187,11 +202,11 @@ namespace PackageManagement.Tests.Scripting
 		}
 		
 		[Test]
-		public void Constructor_PackageReferenceIsRemoved_PackageUninstallScriptIsCreated()
+		public void Constructor_PackageReferenceIsBeingRemoved_PackageUninstallScriptIsCreated()
 		{
 			CreateAction();
 			PackageOperationEventArgs eventArgs = CreatePackageOperationEventArgs(@"d:\projects\myproject\packages\test");
-			fakeProject.FirePackageReferenceRemovedEvent(eventArgs);
+			fakeProject.FirePackageReferenceRemovingEvent(eventArgs);
 			
 			string path = fakeScriptFactory.FirstPackageInstallDirectoryPassed;
 			
@@ -199,13 +214,13 @@ namespace PackageManagement.Tests.Scripting
 		}
 		
 		[Test]
-		public void Dispose_PackageReferenceIsRemoved_PackageUninstallScriptIsNotRun()
+		public void Dispose_PackageReferenceIsBeingRemoved_PackageUninstallScriptIsNotRun()
 		{
 			CreateAction();
 			action.Dispose();
 			
 			PackageOperationEventArgs eventArgs = CreatePackageOperationEventArgs();
-			fakeProject.FirePackageReferenceRemovedEvent(eventArgs);
+			fakeProject.FirePackageReferenceRemovingEvent(eventArgs);
 			
 			int count = fakeScriptFactory.FakePackageUninstallScriptsCreated.Count;
 			
@@ -213,11 +228,11 @@ namespace PackageManagement.Tests.Scripting
 		}
 		
 		[Test]
-		public void Constructor_PackageReferenceIsRemoved_UninstallScriptIsPassedProject()
+		public void Constructor_PackageReferenceIsBeingRemoved_UninstallScriptIsPassedProject()
 		{
 			CreateAction();
 			PackageOperationEventArgs eventArgs = CreatePackageOperationEventArgs();
-			fakeProject.FirePackageReferenceRemovedEvent(eventArgs);
+			fakeProject.FirePackageReferenceRemovingEvent(eventArgs);
 			
 			IPackageManagementProject project = fakeScriptFactory.FirstPackageUninstallScriptCreated.Project;
 			
@@ -225,12 +240,12 @@ namespace PackageManagement.Tests.Scripting
 		}
 		
 		[Test]
-		public void Constructor_PackageReferenceIsRemoved_UninstallScriptIsPassedPackageFromPackageOperationEventArgs()
+		public void Constructor_PackageReferenceIsBeingRemoved_UninstallScriptIsPassedPackageFromPackageOperationEventArgs()
 		{
 			CreateAction();
 			var expectedPackage = new FakePackage();
 			PackageOperationEventArgs eventArgs = CreatePackageOperationEventArgs(expectedPackage);
-			fakeProject.FirePackageReferenceRemovedEvent(eventArgs);
+			fakeProject.FirePackageReferenceRemovingEvent(eventArgs);
 			
 			IPackage package = fakeScriptFactory.FirstPackageUninstallScriptCreated.Package;
 			

@@ -1,10 +1,21 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Peter Forstmeier
- * Date: 26.04.2012
- * Time: 19:56
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿// Copyright (c) 2014 AlphaSierraPapa for the SharpDevelop Team
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+// software and associated documentation files (the "Software"), to deal in the Software
+// without restriction, including without limitation the rights to use, copy, modify, merge,
+// publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+// to whom the Software is furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+// PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -22,7 +33,7 @@ namespace ICSharpCode.SharpDevelop.Gui.OptionPanels
 	public partial class Signing : ProjectOptionPanel
 	{
 		private const string KeyFileExtensions = "*.snk;*.pfx;*.key";
-	
+		
 		public Signing()
 		{
 			InitializeComponent();
@@ -50,7 +61,7 @@ namespace ICSharpCode.SharpDevelop.Gui.OptionPanels
 		
 		#region overrides
 		
-	
+		
 		protected override void Load(MSBuildBasedProject project, string configuration, string platform)
 		{
 			base.Load(project, configuration, platform);
@@ -130,7 +141,7 @@ namespace ICSharpCode.SharpDevelop.Gui.OptionPanels
 			// Because this event is raised while the combobox is still switching to the "<create>" or "<browse>" value,
 			// we cannot set comboBox.Text within this event handler.
 			// To avoid this problem, we invoke the operation after the combobox has finished switching to the new value.
-			WorkbenchSingleton.SafeThreadAsyncCall(
+			Dispatcher.BeginInvoke(new Action(
 				delegate {
 					if (this.keyFileComboBox.SelectedIndex == keyFile.Count - 1) {
 						keyFileComboBox.Text = String.Empty;
@@ -141,7 +152,7 @@ namespace ICSharpCode.SharpDevelop.Gui.OptionPanels
 						keyFileComboBox.Text = String.Empty;
 						CreateKeyFile();
 					}
-				});
+				}));
 		}
 		
 		private void CreateKeyFile()
